@@ -1,0 +1,271 @@
+# SUMA — Base de Conocimiento Pedagógico Completo
+# Fuentes: Quiroz Rosas (2023), Nava Guzmán (2025), García Carmona et al. (2024),
+#          Investigaciones sobre TDAH, TEA y DAM (2024-2025)
+
+## DEFINICIÓN COMPLETA
+La suma o adición es una operación matemática fundamental que consiste en reunir dos o más cantidades para obtener una cantidad total. Es la operación base de las matemáticas porque todas las demás se relacionan con ella.
+
+Formato estándar: Sumando1 + Sumando2 = Total
+Ejemplo: 5 + 3 = 8
+
+DATO IMPORTANTE: "Las competencias matemáticas no se alcanzan por generación espontánea, sino que requieren de ambientes de aprendizaje enriquecidos por situaciones problema significativas."
+
+## VOCABULARIO MATEMÁTICO ESENCIAL
+- Sumando: cada uno de los números que se añaden
+- Total o Suma: el resultado final
+- Signo +: se lee "más", significa "agregar" o "juntar"
+- Suma con cero: cualquier número + 0 = ese mismo número (7 + 0 = 7)
+- Suma con uno: cualquier número + 1 = el número siguiente (7 + 1 = 8)
+
+## PROPIEDADES DE LA SUMA
+1. Conmutativa: el orden no cambia el resultado → 3 + 5 = 5 + 3 = 8
+2. Asociativa: el agrupamiento no cambia → (2+3)+4 = 2+(3+4) = 9
+3. Elemento neutro: sumar cero no cambia el número → 7 + 0 = 7
+
+## TIPOS DE PROBLEMAS DE SUMA (Clasificación Semántica)
+Para evitar que el estudiante aplique soluciones mecánicas, los problemas deben variar:
+
+TIPO 1 — Estado-Transformación-Estado (ETE):
+"Ayer tenía 20 cromos y mi madre me regala 10. ¿Cuántos tengo ahora?"
+→ Situación inicial + cambio = situación final
+
+TIPO 2 — Estado-Estado-Estado (EEE):
+"Tienes 37 caramelos de naranja y limón. Si 18 son de limón, ¿cuántos son de naranja?"
+→ Total conocido, una parte conocida, otra desconocida
+
+TIPO 3 — Estado-Comparación-Estado (ECE):
+"Alex tiene 12 cromos y Juan tiene 21. ¿Cuántos cromos tiene Juan más que Alex?"
+→ Comparación entre dos cantidades
+
+PALABRAS TRAMPA (importante para todos los perfiles):
+Cuidado con guiarse solo por palabras clave. Ejemplo:
+"Una camiseta cuesta 35 euros MENOS que un pantalón. Si la camiseta cuesta 19 euros, ¿cuánto cuesta el pantalón?"
+→ Dice "menos" pero se resuelve SUMANDO: 19 + 35 = 54
+Enseñanza: siempre analizar el problema completo, no solo las palabras clave.
+
+## NIVELES DE DIFICULTAD
+
+### NIVEL 1 — Suma básica (hasta 10)
+Usar números pequeños para no intimidar al estudiante en las primeras fases.
+2 + 3 = 5
+4 + 4 = 8
+1 + 7 = 8
+0 + 6 = 6
+
+### NIVEL 2 — Suma sin llevar (hasta 20)
+11 + 5 = 16
+13 + 4 = 17
+10 + 9 = 19
+
+### NIVEL 3 — Suma con llevar
+Ejemplo: 17 + 5 = ?
+Paso 1: 7 + 5 = 12 → escribo 2, llevo 1
+Paso 2: 1 + 1(llevado) = 2
+Resultado: 22
+Verificación: 22 - 5 = 17 ✓
+
+### NIVEL 4 — Suma de tres sumandos
+4 + 3 + 6 = ?
+Paso 1: 4 + 3 = 7
+Paso 2: 7 + 6 = 13
+Resultado: 13
+
+## ESTRATEGIAS PARA ESTUDIANTES CON TDAH
+
+### Principios clave basados en evidencia:
+- Entre el 25% y 30% de los niños con TDAH tienen dificultades en matemáticas
+- Los déficits no son de capacidad lógica sino de memoria de trabajo y funciones ejecutivas
+- El proceso se ralentiza provocando errores y no terminación de tareas
+- El factor hereditario está presente en un 80% de los casos
+
+### Estrategias validadas:
+
+1. AUTOINSTRUCCIONES (lenguaje interno):
+Enseñar al estudiante a decir en voz alta cada paso:
+"Tengo el número 5... ahora agrego 3... cuento: seis, siete, OCHO... el resultado es 8"
+Esto fomenta el pensamiento organizado y el autocontrol.
+
+2. MICRO-APRENDIZAJE Y RUTINAS:
+- Comenzar siempre con 10-15 minutos de sumas rápidas (rutina fija)
+- Ejercicios muy variados para evitar monotonía
+- Dividir cada problema en pasos muy pequeños y manejables
+
+3. INSTRUCCIÓN EXPLÍCITA (5 componentes):
+- Inicio claro: explicar qué se va a aprender
+- Modelado: mostrar la suma paso a paso
+- Práctica guiada: resolver juntos
+- Práctica independiente: resolver solo con apoyo
+- Cierre reflexivo: ¿qué aprendimos hoy?
+
+4. GAMIFICACIÓN:
+- Retos con puntos y recompensas por cada suma correcta
+- Competencias de velocidad: ¿quién suma más rápido?
+- Loterías matemáticas con sumas como respuestas
+
+5. APRENDIZAJE MULTISENSORIAL:
+- Usar fichas, bloques o canicas para representar los sumandos físicamente
+- No abandonar el material concreto aunque parezca lento
+- Modificar formatos: cuadrículas, colores para resaltar los sumandos
+
+6. MINIMIZACIÓN DE DISTRACTORES:
+- Entorno tranquilo durante la práctica
+- Pausas activas frecuentes para regular la energía
+- Presentar un solo problema a la vez
+
+### Ejemplos motivadores para TDAH:
+- "Tienes 6 vidas en el juego y encuentras 4 más. ¿Cuántas vidas tienes?"
+- "Tu equipo anotó 5 goles en el primer tiempo y 3 en el segundo. ¿Cuántos en total?"
+- "Compraste 7 cartas y tu amigo te regala 8. ¿Cuántas cartas tienes ahora?"
+- "Tienes 12 monedas y ganas 9 en el siguiente nivel. ¿Cuántas tienes?"
+
+### Retos rápidos con recompensa:
+⭐ RETO 1: 8 + 7 = ? (¡10 segundos!)
+⭐⭐ RETO 2: 15 + 6 = ? (¡sin papel!)
+⭐⭐⭐ RETO 3: 23 + 18 = ? (¡campeón matemático!)
+
+## ESTRATEGIAS PARA ESTUDIANTES CON AUTISMO (TEA)
+
+### Datos importantes:
+- Prevalencia: 1 de cada 100 niños tiene TEA (OMS, 2023)
+- Un 57% de niños con TEA tienen dificultades para resolver problemas matemáticos
+- Procesan mejor la información visual que la auditiva
+- Tienen dificultad para simbolizar pero buenas habilidades visoespaciales
+
+### Estrategias validadas:
+
+1. METODOLOGÍA CRA (Concreto - Representacional - Abstracto):
+
+FASE 1 — CONCRETA (objetos físicos):
+Instrucción exacta: "Toma 4 bloques. Ahora toma 3 bloques más. Cuenta todos los bloques juntos."
+[B][B][B][B] + [B][B][B] = [B][B][B][B][B][B][B]
+Resultado: 7 bloques
+
+FASE 2 — REPRESENTACIONAL (dibujo):
+[ ][ ][ ][ ] + [ ][ ][ ] = [ ][ ][ ][ ][ ][ ][ ]
+     4        +     3     =          7
+
+FASE 3 — ABSTRACTA (solo números):
+4 + 3 = 7
+Nota: No pasar a la siguiente fase hasta que la anterior esté dominada.
+
+2. LA CAJA DE SUMAR DE CANALS (actividad específica para TEA):
+Una caja con dos orificios y una pestaña separadora.
+- El niño introduce el primer sumando en un agujero
+- Luego el segundo sumando en el otro
+- Se abre la caja para ver el total combinado
+- Esto evidencia físicamente el acto de "juntar"
+
+3. CALCULADORA NO TECNOLÓGICA:
+Construida con dos tubos y una caja receptora.
+- Los niños introducen canicas por los tubos (sumandos)
+- Las canicas caen y se juntan en la caja (total)
+- Visualizan físicamente la suma
+
+4. AVANCE MENTAL (superar dependencia de contar desde cero):
+Para 3 + 2: pensar "TRES" (guardarlo en la mente)
+Luego contar físicamente solo el segundo: "cuatro, CINCO"
+Resultado: 5
+
+5. APOYOS VISUALES Y SEÑALIZACIÓN:
+- Agendas visuales para anticipar la secuencia de la clase
+- Colores diferentes para cada sumando (sumando1 en azul, sumando2 en verde, total en rojo)
+- Etiquetas y sistemas de colores para resaltar datos importantes
+- Pictomaterial: representaciones gráficas en materiales manipulables
+
+6. METODOLOGÍA TEACCH:
+- Rincones de trabajo claramente rotulados con imágenes
+- Estructuración del tiempo mediante agendas visuales
+- Cada actividad en un espacio físico definido y siempre igual
+
+7. RESPETO A LA INFLEXIBILIDAD RUTINAL:
+La adaptación a nuevo material puede tardar 2 a 4 días.
+No cambiar la actividad abruptamente si hay rechazo inicial.
+Introducir cambios de forma gradual y anticipada.
+
+8. DUA — DISEÑO UNIVERSAL DE APRENDIZAJE:
+- Red de reconocimiento: ofrecer la suma en formato visual, auditivo y táctil
+- Red estratégica: permitir que el alumno exprese la respuesta oral o escrita
+- Red afectiva: conectar la suma con los intereses personales del estudiante
+
+### Pasos numerados obligatorios para TEA (método FOPS):
+1. LEO el problema completo una vez
+2. IDENTIFICO el primer sumando
+3. IDENTIFICO el segundo sumando
+4. ESCRIBO: [sumando1] + [sumando2] = ?
+5. CALCULO el total
+6. VERIFICO: total - sumando2 = sumando1
+
+### Formato fijo para TEA (siempre igual):
+[Número 1] + [Número 2] = [Total]
+Verificación: [Total] - [Número 2] = [Número 1]
+
+### Lenguaje prohibido para TEA:
+- "Suma tus esfuerzos" → metáfora, causa confusión
+- "Más o menos" → ambiguo
+- "Junta fuerzas" → figurado
+Usar siempre: "El número 5 más el número 3 es igual a 8"
+
+### Contextos predecibles para TEA (intereses específicos):
+- Bloques apilados, trenes en estación, planetas, fichas de colores
+- Adaptar siempre al área de interés del estudiante
+
+## EJEMPLOS RESUELTOS COMPLETOS
+
+### Ejemplo 1 — Básico:
+Operación: 3 + 4 = ?
+Paso 1: Primer sumando = 3
+Paso 2: Segundo sumando = 4
+Paso 3: Cuento desde 3: cuatro, cinco, seis, SIETE
+Resultado: 3 + 4 = 7
+Verificación: 7 - 4 = 3 ✓
+
+### Ejemplo 2 — Contexto real TEA (trenes):
+Problema: "Hay 5 trenes en la estación. Llegan 4 trenes más. ¿Cuántos trenes hay?"
+Paso 1: Trenes iniciales = 5
+Paso 2: Trenes que llegan = 4
+Paso 3: 5 + 4 = 9
+Paso 4: Hay 9 trenes en total
+Verificación: 9 - 4 = 5 ✓
+
+### Ejemplo 3 — Con llevar (TDAH):
+Problema: "Tienes 28 puntos y ganas 15 más. ¿Cuántos puntos tienes?"
+Paso 1: 8 + 5 = 13 → escribo 3, llevo 1
+Paso 2: 2 + 1 + 1(llevado) = 4
+Resultado: 28 + 15 = 43 ⭐
+Verificación: 43 - 15 = 28 ✓
+
+### Ejemplo 4 — Tipo ETE (problema de palabras):
+Problema: "María tenía 9 manzanas. Su mamá le da 6 más. ¿Cuántas tiene ahora?"
+Paso 1: Situación inicial = 9
+Paso 2: Transformación (recibe) = 6
+Paso 3: 9 + 6 = 15
+Verificación: 15 - 6 = 9 ✓
+
+### Ejemplo 5 — Tres sumandos:
+Operación: 6 + 4 + 7 = ?
+Paso 1: 6 + 4 = 10
+Paso 2: 10 + 7 = 17
+Resultado: 17
+Verificación: 17 - 7 - 4 = 6 ✓
+
+## FAMILIA DE OPERACIONES (útil para TEA — estructura predecible)
+3 + 5 = 8
+5 + 3 = 8
+8 - 3 = 5
+8 - 5 = 3
+
+## RECOMENDACIONES GENERALES
+- Usar números pequeños (menores a 100) en primeras fases
+- Permitir que el estudiante verbalice cómo resolvió el problema
+- Dar elogios específicos: nombrar exactamente qué hizo bien
+- No exceder 2 horas de práctica independiente
+- Monitorear progreso al menos una vez al mes
+- Trabajar en alianza con familia y especialistas
+
+## APLICACIONES RECOMENDADAS
+- Photomath: escanea la operación y explica paso a paso
+- Symbolab: proceso completo con ejemplos visuales
+- MATHia: adapta la dificultad con IA al ritmo del estudiante
+- Matemáticas ProFuturo: gamificación para 8-12 años
+- ModMath: para estudiantes con dificultades de escritura
+- Khan Academy: videos y ejercicios con retroalimentación inmediata

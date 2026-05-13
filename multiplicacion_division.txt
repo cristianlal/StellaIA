@@ -1,0 +1,353 @@
+# MULTIPLICACIÓN Y DIVISIÓN — Base de Conocimiento Pedagógico Completo
+# Fuentes: Quiroz Rosas (2023), Nava Guzmán (2025), García Carmona et al. (2024),
+#          Investigaciones sobre TDAH, TEA y DAM (2024-2025)
+
+## MULTIPLICACIÓN
+
+### DEFINICIÓN COMPLETA
+La multiplicación es una suma repetida del mismo número. Es una forma abreviada y eficiente de sumar varias veces el mismo valor.
+
+Formato estándar: Multiplicando × Multiplicador = Producto
+Ejemplo: 3 × 4 = 12 (significa: 3 + 3 + 3 + 3 = 12)
+
+PRINCIPIO FUNDAMENTAL: No memorizar tablas sin sentido lógico. Primero entender qué significa multiplicar, luego practicar con contexto real.
+
+### VOCABULARIO MATEMÁTICO ESENCIAL
+- Multiplicando: el número que se repite
+- Multiplicador: las veces que se repite
+- Producto: el resultado
+- Factor: nombre general para multiplicando y multiplicador
+- Signo ×: se lee "por" o "veces"
+
+### PROPIEDADES DE LA MULTIPLICACIÓN
+1. Conmutativa: 3 × 4 = 4 × 3 = 12
+2. Asociativa: (2×3)×4 = 2×(3×4) = 24
+3. Elemento neutro: n × 1 = n (5 × 1 = 5)
+4. Elemento absorbente: n × 0 = 0 (5 × 0 = 0)
+5. Distributiva: 3×(4+2) = (3×4)+(3×2) = 18
+
+### TABLA DE MULTIPLICAR COMPLETA
+×  | 1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  | 9  | 10
+1  | 1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  | 9  | 10
+2  | 2  | 4  | 6  | 8  | 10 | 12 | 14 | 16 | 18 | 20
+3  | 3  | 6  | 9  | 12 | 15 | 18 | 21 | 24 | 27 | 30
+4  | 4  | 8  | 12 | 16 | 20 | 24 | 28 | 32 | 36 | 40
+5  | 5  | 10 | 15 | 20 | 25 | 30 | 35 | 40 | 45 | 50
+6  | 6  | 12 | 18 | 24 | 30 | 36 | 42 | 48 | 54 | 60
+7  | 7  | 14 | 21 | 28 | 35 | 42 | 49 | 56 | 63 | 70
+8  | 8  | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80
+9  | 9  | 18 | 27 | 36 | 45 | 54 | 63 | 72 | 81 | 90
+10 | 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90 | 100
+
+### NIVELES DE DIFICULTAD
+
+NIVEL 1 — Multiplicar por 1 y 2:
+3 × 1 = 3 / 4 × 2 = 8 / 5 × 2 = 10
+
+NIVEL 2 — Tablas del 3 al 5:
+3 × 4 = 12 / 4 × 5 = 20 / 5 × 3 = 15
+
+NIVEL 3 — Tablas del 6 al 9:
+6 × 7 = 42 / 8 × 8 = 64 / 9 × 6 = 54
+
+NIVEL 4 — Multiplicación de dos cifras:
+12 × 3 = ?
+Paso 1: 2 × 3 = 6
+Paso 2: 1 × 3 = 3
+Resultado: 36
+Verificación: 36 ÷ 3 = 12 ✓
+
+### ESTRATEGIAS PARA TDAH — MULTIPLICACIÓN
+
+Datos importantes:
+- Alta comorbilidad TDAH y dificultades matemáticas (18.1%)
+- Déficits en memoria de trabajo afectan el recuerdo de tablas
+- La gamificación es la estrategia preferida por docentes (33.3%)
+
+Estrategias validadas:
+
+1. MÉTODO HINDÚ PARA MULTIPLICAR (muy visual):
+Se dibuja una tabla con celdas cruzadas por línea diagonal.
+En la mitad superior: decenas. En la inferior: unidades.
+Luego se suman los números siguiendo la diagonal.
+Ejemplo 23 × 14:
+- Es una alternativa muy visual a la multiplicación tradicional
+- Ideal para estudiantes que se pierden con el algoritmo estándar
+
+2. EL NUMERATOR (valor posicional):
+Herramienta que usa la metamorfosis de la mariposa:
+- Huevo = unidades
+- Oruga = decenas
+- Crisálida = centenas
+Los estudiantes usan "hojitas" que cambian de nivel al acumular 10.
+Conecta la multiplicación con el valor posicional de forma visual.
+
+3. GAMIFICACIÓN:
+- Tablas como canciones o ritmos (2,4,6,8,10...)
+- Competencias: ¿quién responde más rápido?
+- Una tabla por día como misión desbloqueada
+- Puntos por cada tabla memorizada con comprensión
+
+4. AUTOINSTRUCCIONES:
+"3 por 4... eso es 3 grupos de 4... cuento: 4, 8, 12... resultado: 12"
+Decirlo en voz alta fomenta el autocontrol.
+
+5. APRENDIZAJE BASADO EN PROYECTOS (ABP):
+- Diseñar un parque: calcular áreas multiplicando dimensiones
+- Organizar un torneo: calcular jugadores totales con multiplicación
+- Comprar en una tienda: calcular precios multiplicando cantidad × precio
+
+6. FRAGMENTACIÓN:
+- Descomponer 7 × 8 como (7 × 4) + (7 × 4) = 28 + 28 = 56
+- Usar la propiedad distributiva para facilitar cálculo mental
+
+Trucos rápidos para TDAH:
+- Tabla del 9: los dígitos siempre suman 9 (9×3=27, 2+7=9)
+- Tabla del 5: siempre termina en 0 o 5
+- Tabla del 2: siempre son números pares
+- Tabla del 10: solo agregar un cero
+
+Ejemplos motivadores:
+- "Hay 4 equipos con 6 jugadores cada uno. ¿Cuántos jugadores en total?"
+- "Tienes 5 bolsas con 8 caramelos cada una. ¿Cuántos caramelos?"
+- "Ganas 7 monedas por nivel y pasas 9 niveles. ¿Cuántas monedas tienes?"
+
+Retos:
+⭐ RETO 1: 6 × 7 = ?
+⭐⭐ RETO 2: 8 × 9 = ? (¡sin mirar la tabla!)
+⭐⭐⭐ RETO 3: 12 × 4 = ? (¡dos cifras, campeón!)
+
+### ESTRATEGIAS PARA TEA — MULTIPLICACIÓN
+
+Datos importantes:
+- Buenas habilidades visoespaciales pero dificultad para simbolizar
+- Funcionan mejor con materiales concretos y representaciones visuales
+- La adaptación a nuevo material puede tomar 2-4 días
+
+Estrategias validadas:
+
+1. METODOLOGÍA CRA:
+
+FASE 1 — CONCRETA:
+3 grupos de 4 bloques físicos:
+[B][B][B][B]  ← Grupo 1
+[B][B][B][B]  ← Grupo 2
+[B][B][B][B]  ← Grupo 3
+Contar todos: 4 + 4 + 4 = 12
+3 × 4 = 12
+
+FASE 2 — REPRESENTACIONAL:
+• • • •   (fila 1)
+• • • •   (fila 2)
+• • • •   (fila 3)
+Total de puntos = 12
+
+FASE 3 — ABSTRACTA:
+3 × 4 = 12
+
+2. MÉTODO COMPS (Modelo Conceptual):
+El profesor guía al estudiante para dibujar:
+[grupos] × [tamaño de grupo] = [total]
+   3     ×       4           =   12
+Con imágenes ilustrativas + diagrama esquemático con igualdades.
+
+3. MÉTODO SOLVED:
+S — Select: identificar tipo de problema (grupos iguales)
+O — Options: decidir operación (multiplicación)
+L — Links: conectar con conocimiento previo (suma repetida)
+V — Visual: dibujar los grupos
+E — Execute: calcular
+D — Do check: verificar con división
+
+4. PASOS NUMERADOS PARA TEA:
+1. LEO el problema
+2. IDENTIFICO el multiplicando (lo que se repite)
+3. IDENTIFICO el multiplicador (cuántas veces)
+4. DIBUJO los grupos
+5. CALCULO el producto
+6. VERIFICO: producto ÷ multiplicador = multiplicando
+
+5. FORMATO FIJO PARA TEA:
+[Multiplicando] × [Multiplicador] = [Producto]
+Verificación: [Producto] ÷ [Multiplicador] = [Multiplicando]
+
+---
+
+## DIVISIÓN
+
+### DEFINICIÓN COMPLETA
+La división es la operación inversa a la multiplicación. Consiste en repartir una cantidad total en grupos iguales.
+
+Formato estándar: Dividendo ÷ Divisor = Cociente (+ Residuo)
+Ejemplo: 12 ÷ 3 = 4
+
+### VOCABULARIO MATEMÁTICO ESENCIAL
+- Dividendo: la cantidad total que se divide
+- Divisor: el número de grupos o tamaño de cada grupo
+- Cociente: el resultado (cuánto hay en cada grupo)
+- Residuo o Resto: lo que sobra cuando no divide exactamente
+- División exacta: residuo = 0
+- División inexacta: residuo ≠ 0
+
+### PROPIEDADES DE LA DIVISIÓN
+1. No es conmutativa: 12 ÷ 3 ≠ 3 ÷ 12
+2. Dividir por 1: n ÷ 1 = n (8 ÷ 1 = 8)
+3. Dividir por sí mismo: n ÷ n = 1 (8 ÷ 8 = 1)
+4. Cero dividido: 0 ÷ n = 0
+5. No se puede dividir por cero (no tiene resultado)
+
+### NIVELES DE DIFICULTAD
+
+NIVEL 1 — División exacta básica:
+6 ÷ 2 = 3 / 8 ÷ 4 = 2 / 10 ÷ 5 = 2
+
+NIVEL 2 — División con tablas:
+18 ÷ 3 = 6 / 24 ÷ 6 = 4 / 35 ÷ 7 = 5
+
+NIVEL 3 — División con residuo:
+17 ÷ 5 = ?
+5 × 3 = 15 (no llega) / 5 × 4 = 20 (se pasa)
+Cociente = 3, Residuo = 17 - 15 = 2
+Verificación: 3 × 5 + 2 = 17 ✓
+
+NIVEL 4 — División con decimales:
+Usar colores para diferenciar parte entera y decimal.
+COLOR ROJO = parte entera / COLOR AZUL = parte decimal
+Guiar visualmente dónde colocar la coma en el resultado.
+
+### ESTRATEGIAS PARA TDAH — DIVISIÓN
+
+1. CONSTRUCCIÓN DE TABLA DE DIVISORES:
+Si el estudiante olvida las tablas durante la división:
+→ Detener el problema principal
+→ Construir la tabla del divisor a un lado
+→ Luego continuar con la división
+Ejemplo: para 56 ÷ 7, construir: 7×1=7, 7×2=14... 7×8=56
+
+2. TRUCO DE LA MULTIPLICACIÓN INVERSA:
+Si no sé 20 ÷ 4, pienso: "¿Cuánto × 4 = 20?"
+→ 5 × 4 = 20 → respuesta: 5
+
+3. DRAMATIZACIÓN:
+"Eres el repartidor de premios. Tienes 24 monedas para 4 guerreros. ¿Cuántas recibe cada uno?"
+→ El estudiante reparte físicamente fichas entre grupos
+
+4. PROYECTO REAL:
+Diseñar un equipo deportivo: "Si hay 30 jugadores para 6 equipos, ¿cuántos por equipo?"
+→ Conecta la división con situaciones reales y significativas
+
+Ejemplos motivadores:
+- "Tienes 24 cartas y las repartes entre 4 amigos. ¿Cuántas recibe cada uno?"
+- "30 monedas de oro para 6 guerreros. ¿Cuántas monedas recibe cada uno?"
+- "Tu equipo ganó 20 puntos en 4 rondas. ¿Cuántos puntos por ronda en promedio?"
+
+Retos:
+⭐ RETO 1: 15 ÷ 3 = ?
+⭐⭐ RETO 2: 28 ÷ 7 = ?
+⭐⭐⭐ RETO 3: 45 ÷ 9 = ? (¡solo con la mente!)
+
+### ESTRATEGIAS PARA TEA — DIVISIÓN
+
+1. METODOLOGÍA CRA:
+
+FASE 1 — CONCRETA:
+Repartir 12 fichas en 3 grupos iguales:
+Grupo 1: [F][F][F][F]
+Grupo 2: [F][F][F][F]
+Grupo 3: [F][F][F][F]
+Cada grupo tiene 4 → 12 ÷ 3 = 4
+
+FASE 2 — REPRESENTACIONAL:
+(• • • •) (• • • •) (• • • •)
+    4    +    4    +    4    = 12
+12 ÷ 3 = 4
+
+FASE 3 — ABSTRACTA:
+12 ÷ 3 = 4
+
+2. MÉTODO COMPS PARA DIVISIÓN:
+Dibujar el diagrama:
+[Total: 12] ÷ [Grupos: 3] = [Por grupo: ?]
+Introducir la variable desconocida visualmente.
+
+3. PASOS NUMERADOS PARA TEA (siempre igual):
+1. LEO el problema
+2. IDENTIFICO el dividendo (cantidad total)
+3. IDENTIFICO el divisor (número de grupos)
+4. ESCRIBO: [dividendo] ÷ [divisor] = ?
+5. CALCULO el cociente
+6. CALCULO el residuo: dividendo - (cociente × divisor)
+7. VERIFICO: cociente × divisor + residuo = dividendo
+
+4. FORMATO FIJO PARA TEA:
+[Dividendo] ÷ [Divisor] = [Cociente] residuo [Resto]
+Verificación: [Cociente] × [Divisor] + [Resto] = [Dividendo]
+
+5. SEÑALIZACIÓN DE COLORES:
+- Dividendo en VERDE
+- Divisor en ROJO
+- Cociente en AZUL
+- Residuo en AMARILLO
+
+## FAMILIA DE OPERACIONES (estructura predecible para TEA)
+3 × 4 = 12
+4 × 3 = 12
+12 ÷ 3 = 4
+12 ÷ 4 = 3
+
+## EJEMPLOS RESUELTOS COMPLETOS
+
+### Multiplicación — Ejemplo 1 (básico):
+Operación: 7 × 8 = ?
+Paso 1: Multiplicando = 7, Multiplicador = 8
+Paso 2: 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7 = 56
+Resultado: 7 × 8 = 56
+Verificación: 56 ÷ 8 = 7 ✓
+
+### Multiplicación — Ejemplo 2 (problema de palabras):
+Problema: "Hay 6 cajas con 9 manzanas cada una. ¿Cuántas manzanas hay?"
+Paso 1: Cajas = 6, manzanas por caja = 9
+Paso 2: 6 × 9 = 54
+Resultado: 54 manzanas en total
+Verificación: 54 ÷ 9 = 6 ✓
+
+### División — Ejemplo 1 (exacta):
+Operación: 36 ÷ 6 = ?
+Paso 1: Dividendo = 36, Divisor = 6
+Paso 2: 6 × 6 = 36
+Resultado: 36 ÷ 6 = 6, Residuo = 0
+Verificación: 6 × 6 = 36 ✓
+
+### División — Ejemplo 2 (con residuo):
+Operación: 23 ÷ 4 = ?
+Paso 1: 4 × 5 = 20 (no llega) / 4 × 6 = 24 (se pasa)
+Paso 2: Cociente = 5, Residuo = 23 - 20 = 3
+Resultado: 23 ÷ 4 = 5 residuo 3
+Verificación: 5 × 4 + 3 = 23 ✓
+
+### División — Ejemplo 3 (TEA, contexto concreto):
+Problema: "Hay 20 bloques. Se forman grupos de 4. ¿Cuántos grupos se forman?"
+Paso 1: Total = 20 (dividendo)
+Paso 2: Por grupo = 4 (divisor)
+Paso 3: 20 ÷ 4 = 5
+Paso 4: Se forman 5 grupos exactos
+Verificación: 5 × 4 = 20 ✓
+
+## RECOMENDACIONES GENERALES
+- Priorizar comprensión sobre memorización de tablas
+- No abandonar el material concreto aunque parezca lento
+- Dar elogios específicos y nombrar exactamente el logro
+- No exceder 2 horas de práctica independiente
+- Monitorear progreso mensualmente
+- Trabajar con familia, psicólogo y especialista
+- Para TDAH: aprendizaje basado en proyectos es altamente efectivo
+- Para TEA: respetar el tiempo de adaptación de 2-4 días por material nuevo
+
+## APLICACIONES RECOMENDADAS
+- MATHia: ejercicios adaptativos con IA, ajusta dificultad automáticamente
+- Photomath: escanea el problema y explica paso a paso
+- Brilliant: problemas con contexto para desarrollar razonamiento
+- Maple Calculator: calculadora con explicación detallada y gráficos
+- Symbolab: resuelve mostrando todos los pasos intermedios
+- CameraMath: toma foto del problema, resuelve y ofrece tutoría personalizada
+- ModMath: para estudiantes con dificultades de escritura o disgrafía
