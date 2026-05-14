@@ -37,12 +37,19 @@ st.markdown("""
 with st.sidebar:
     st.markdown("### ⚙️ Configuración")
 
-    api_key = st.text_input(
-        "🔑 API Key de Gemini",
-        type="password",
-        placeholder="AIzaSy...",
-        help="Obtén tu llave gratuita en https://aistudio.google.com",
-    )
+    # Leer desde Streamlit Secrets automáticamente (Streamlit Cloud)
+    api_key_secret = st.secrets.get("GROQ_API_KEY", "") if hasattr(st, "secrets") else ""
+
+    if api_key_secret:
+        api_key = api_key_secret
+        st.success("🔑 API Key cargada")
+    else:
+        api_key = st.text_input(
+            "🔑 Groq API Key",
+            type="password",
+            placeholder="gsk_...",
+            help="Obtén tu API key en console.groq.com",
+        )
 
     st.markdown("---")
     st.markdown("### 📚 ¿Qué es este tutor?")
@@ -220,5 +227,3 @@ if st.session_state["historial"]:
             st.markdown(f"**{i}. [{item['perfil']}]** {item['pregunta']}")
             st.caption(item["respuesta"][:200] + "...")
             st.markdown("---")
-
-
