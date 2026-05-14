@@ -219,14 +219,21 @@ if generar:
                     # Extraer el ejercicio del reto de la respuesta
                     import re
                     ejercicio_encontrado = ""
-                    lineas = respuesta.split("\n")
-                    for linea in lineas:
-                        if "Reto" in linea or "reto" in linea or "⭐" in linea:
-                            # Buscar patron de operacion matematica
-                            match = re.search(r"[\d]+\s*[\+\-\×\÷\*\/x]\s*[\d]+", linea)
-                            if match:
-                                ejercicio_encontrado = match.group(0).strip()
-                            break
+                    # Buscar en toda la respuesta el patron del reto rapido
+                    patron = re.compile(r"(\d+\s*[\+\-\×\÷\*x\/]\s*\d+)\s*=\s*\?", re.IGNORECASE)
+                    matches = patron.findall(respuesta)
+                    if matches:
+                        ejercicio_encontrado = matches[-1].strip()
+                    else:
+                        # Buscar solo el patron de operacion sin el "= ?"
+                        patron2 = re.compile(r"\d+\s*[\+\-\×\÷\*x\/]\s*\d+")
+                        lineas = respuesta.split("\n")
+                        for linea in reversed(lineas):
+                            if any(x in linea for x in ["Reto", "reto", "⭐", "intenta", "Intenta"]):
+                                m = patron2.search(linea)
+                                if m:
+                                    ejercicio_encontrado = m.group(0).strip()
+                                    break
 
                     st.session_state["ultima_respuesta"] = respuesta
                     st.session_state["perfil_reto"] = perfil_actual
