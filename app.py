@@ -11,7 +11,7 @@ import os
 from pathlib import Path
 
 st.set_page_config(
-    page_title="Stella IA — Matemáticas Adaptativas",
+    page_title="Tutor IA — Matemáticas Adaptativas",
     page_icon="🧮",
     layout="centered",
     initial_sidebar_state="expanded",
@@ -38,7 +38,7 @@ with st.sidebar:
     st.markdown("### ⚙️ Configuración")
 
     api_key = st.text_input(
-        "🔑 API Key de Groq",
+        "🔑 API Key de Gemini",
         type="password",
         placeholder="AIzaSy...",
         help="Obtén tu llave gratuita en https://aistudio.google.com",
@@ -144,6 +144,8 @@ if generar:
                     st.session_state["perfil_reto"] = perfil_actual
                     st.session_state["pregunta_reto"] = pregunta
                     st.session_state["mostrar_reto"] = not es_error
+                    st.session_state["historial_reto"] = []
+                    st.session_state["reto_contador"] = 0
 
 
 
@@ -154,15 +156,25 @@ if generar:
 if st.session_state.get("mostrar_reto") and st.session_state.get("ultima_respuesta"):
     st.markdown("---")
     st.markdown("### 🎯 ¡Responde el Reto!")
-    st.markdown("Escribe tu respuesta al reto rápido que te dio Stella:")
 
-    respuesta_reto = st.text_input(
-        "✏️ Tu respuesta:",
-        placeholder="Escribe aquí tu respuesta...",
-        key="input_reto"
-    )
+    # Mostrar historial de intentos del reto
+    if st.session_state.get("historial_reto"):
+        for i, item in enumerate(st.session_state["historial_reto"]):
+            st.markdown(f"**Tu respuesta:** `{item['respuesta']}`")
+            st.markdown(item["evaluacion"])
+            st.markdown("---")
 
-    if st.button("✅ Verificar respuesta", use_container_width=True):
+    # Campo siempre activo para seguir respondiendo
+    st.markdown("✏️ Escribe tu respuesta:")
+    with st.form(key=f"form_reto_{st.session_state.get('reto_contador', 0)}", clear_on_submit=True):
+        respuesta_reto = st.text_input(
+            "Tu respuesta:",
+            placeholder="Escribe aquí tu respuesta...",
+            label_visibility="collapsed"
+        )
+        verificar = st.form_submit_button("✅ Verificar respuesta", use_container_width=True)
+
+    if verificar:
         if respuesta_reto.strip():
             with st.spinner("⏳ Stella está evaluando tu respuesta..."):
                 try:
@@ -175,9 +187,14 @@ if st.session_state.get("mostrar_reto") and st.session_state.get("ultima_respues
                         perfil=st.session_state.get("perfil_reto", "GENERAL"),
                         respuesta_estudiante=respuesta_reto
                     )
-                    st.markdown("### 💬 Stella dice:")
-                    st.markdown(evaluacion)
-                    st.session_state["mostrar_reto"] = False
+                    if "historial_reto" not in st.session_state:
+                        st.session_state["historial_reto"] = []
+                    st.session_state["historial_reto"].append({
+                        "respuesta": respuesta_reto,
+                        "evaluacion": evaluacion
+                    })
+                    st.session_state["reto_contador"] = st.session_state.get("reto_contador", 0) + 1
+                    st.rerun()
                 except Exception as e:
                     st.error(f"❌ Error al evaluar: {str(e)}")
         else:
@@ -203,4 +220,5 @@ if st.session_state["historial"]:
             st.markdown(f"**{i}. [{item['perfil']}]** {item['pregunta']}")
             st.caption(item["respuesta"][:200] + "...")
             st.markdown("---")
+
 
