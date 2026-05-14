@@ -216,9 +216,23 @@ if generar:
                     })
                     # Solo mostrar reto si la respuesta no es un mensaje de error
                     es_error = any(x in respuesta for x in ["⚠️", "🔑", "⏳", "Lo siento", "no estoy diseñado", "API Key"])
+                    # Extraer el ejercicio del reto de la respuesta
+                    import re
+                    ejercicio_encontrado = ""
+                    lineas = respuesta.split("\n")
+                    for linea in lineas:
+                        if "Reto" in linea or "reto" in linea or "⭐" in linea:
+                            # Buscar patron de operacion matematica
+                            match = re.search(r"[\d]+\s*[\+\-\×\÷\*\/x]\s*[\d]+", linea)
+                            if match:
+                                ejercicio_encontrado = match.group(0).strip()
+                            break
+
                     st.session_state["ultima_respuesta"] = respuesta
                     st.session_state["perfil_reto"] = perfil_actual
                     st.session_state["pregunta_reto"] = pregunta
+                    st.session_state["ejercicio_reto"] = ejercicio_encontrado
+                    st.session_state["tema_reto"] = pregunta.lower()
                     st.session_state["mostrar_reto"] = not es_error
                     st.session_state["historial_reto"] = []
                     st.session_state["reto_contador"] = 0
@@ -261,7 +275,9 @@ if st.session_state.get("mostrar_reto") and st.session_state.get("ultima_respues
                     )
                     evaluacion = tutor_eval.evaluar_reto(
                         perfil=st.session_state.get("perfil_reto", "GENERAL"),
-                        respuesta_estudiante=respuesta_reto
+                        respuesta_estudiante=respuesta_reto,
+                        ejercicio=st.session_state.get("ejercicio_reto", ""),
+                        tema=st.session_state.get("tema_reto", "suma")
                     )
                     if "historial_reto" not in st.session_state:
                         st.session_state["historial_reto"] = []
@@ -269,6 +285,11 @@ if st.session_state.get("mostrar_reto") and st.session_state.get("ultima_respues
                         "respuesta": respuesta_reto,
                         "evaluacion": evaluacion
                     })
+                    # Extraer nuevo ejercicio de la evaluacion
+                    import re
+                    match = re.search(r"[\d]+\s*[\+\-\×\÷\*\/x]\s*[\d]+", evaluacion)
+                    if match:
+                        st.session_state["ejercicio_reto"] = match.group(0).strip()
                     st.session_state["reto_contador"] = st.session_state.get("reto_contador", 0) + 1
                     st.rerun()
                 except Exception as e:
