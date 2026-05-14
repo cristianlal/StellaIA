@@ -69,15 +69,23 @@ class TutorAdaptativo:
             "fuente_rag": "base de conocimiento interna",
         }
 
-    def evaluar_reto(self, perfil: str, respuesta_estudiante: str) -> str:
+    def evaluar_reto(self, perfil: str, respuesta_estudiante: str, ejercicio: str = "", tema: str = "suma") -> str:
         """Evalúa la respuesta del reto sin pasar por el RAG."""
-        prompt = f"""Eres Stella, tutora de matemáticas. El estudiante respondió el Reto Rápido con: "{respuesta_estudiante}"
+        prompt = f"""Eres Stella, tutora de matemáticas. 
 
-Responde en exactamente 3 líneas:
-1. Si es correcto: "🏆 ¡Correcto! Tienes el Reto Rápido correcto." / Si es incorrecto: "❌ Casi lo logras, la respuesta correcta es [respuesta] porque [razón breve]."
-2. Una oración corta de ánimo.
-3. Un nuevo ejercicio: "Ahora intenta: [ejercicio sencillo]"
-Sin explicaciones largas ni estrategias."""
+El estudiante estaba practicando el tema: {tema}
+El ejercicio del reto fue: {ejercicio}
+El estudiante respondió: "{respuesta_estudiante}"
+
+INSTRUCCIONES IMPORTANTES:
+1. Calcula TÚ MISMO la respuesta correcta del ejercicio "{ejercicio}" antes de evaluar.
+2. Compara la respuesta del estudiante con la correcta.
+3. Responde en exactamente 3 líneas:
+   - LÍNEA 1: Si es correcto escribe: "🏆 ¡Correcto! Tienes el Reto Rápido correcto." / Si es incorrecto escribe: "❌ Casi lo logras, la respuesta correcta es [resultado] porque [razón de una frase]."
+   - LÍNEA 2: Una oración corta de ánimo.
+   - LÍNEA 3: Propón un nuevo ejercicio SOLO del tema {tema}, similar al anterior. Ejemplo: "Ahora intenta: [número] [operación del mismo tema] [número] = ?"
+4. NO cambies de tema. Si el tema es suma, el nuevo ejercicio debe ser de SUMA únicamente.
+5. NO incluyas estrategias ni explicaciones largas."""
 
         try:
             response = self.client.chat.completions.create(
