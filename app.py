@@ -220,20 +220,13 @@ if generar:
                     import re
                     ejercicio_encontrado = ""
                     # Buscar en toda la respuesta el patron del reto rapido
-                    patron = re.compile(r"(\d+\s*[\+\-\×\÷\*x\/]\s*\d+)\s*=\s*\?", re.IGNORECASE)
-                    matches = patron.findall(respuesta)
-                    if matches:
-                        ejercicio_encontrado = matches[-1].strip()
-                    else:
-                        # Buscar solo el patron de operacion sin el "= ?"
-                        patron2 = re.compile(r"\d+\s*[\+\-\×\÷\*x\/]\s*\d+")
-                        lineas = respuesta.split("\n")
-                        for linea in reversed(lineas):
-                            if any(x in linea for x in ["Reto", "reto", "⭐", "intenta", "Intenta"]):
-                                m = patron2.search(linea)
-                                if m:
-                                    ejercicio_encontrado = m.group(0).strip()
-                                    break
+                    lineas_resp = respuesta.splitlines()
+                    for linea in reversed(lineas_resp):
+                        if any(x in linea for x in ["Reto", "reto", "⭐", "intenta", "Intenta"]):
+                            m = re.search(r"(\d+\s*[\+\-\*x\/]\s*\d+)", linea)
+                            if m:
+                                ejercicio_encontrado = m.group(0).strip()
+                                break
 
                     st.session_state["ultima_respuesta"] = respuesta
                     st.session_state["perfil_reto"] = perfil_actual
@@ -292,14 +285,13 @@ if st.session_state.get("mostrar_reto") and st.session_state.get("ultima_respues
                         "respuesta": respuesta_reto,
                         "evaluacion": evaluacion
                     })
-                    # Extraer nuevo ejercicio de la evaluacion (buscar "Ahora intenta")
+                    # Extraer nuevo ejercicio de la evaluacion
                     import re
                     nuevo_ejercicio = ""
-                    for linea in evaluacion.split("
-"):
+                    lineas_eval = evaluacion.splitlines()
+                    for linea in lineas_eval:
                         if any(x in linea for x in ["Ahora intenta", "intenta", "Intenta"]):
-                            patron = re.compile(r"(\d+\s*[\+\-\×\÷\*x\/]\s*\d+)")
-                            m = patron.search(linea)
+                            m = re.search(r"(\d+\s*[\+\-\*x\/]\s*\d+)", linea)
                             if m:
                                 nuevo_ejercicio = m.group(0).strip()
                                 break
