@@ -11,11 +11,72 @@ import os
 from pathlib import Path
 
 st.set_page_config(
-    page_title="Tutor IA — Matemáticas Adaptativas",
+    page_title="Stella — Tutor Matemático",
     page_icon="🧮",
     layout="centered",
     initial_sidebar_state="expanded",
 )
+
+# ── Sistema de Login ──────────────────────────────────────────────
+def check_login():
+    import json
+
+    # Cargar usuarios guardados en session_state
+    if "usuarios_db" not in st.session_state:
+        st.session_state["usuarios_db"] = {}
+
+    if not st.session_state.get("logged_in"):
+        st.markdown("""
+        <div style='text-align:center; padding: 40px;'>
+            <h1 style='color:#00CFFF; font-size:2.5rem;'>🧮 Stella</h1>
+            <p style='color:#aaaaaa; font-size:1.1rem;'>Tutor Virtual Adaptativo de Matemáticas</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        col1, col2, col3 = st.columns([1, 2, 1])
+        with col2:
+            tab_login, tab_registro = st.tabs(["🔐 Iniciar Sesión", "📝 Registrarse"])
+
+            with tab_login:
+                usuario = st.text_input("👤 Usuario:", placeholder="Tu usuario", key="login_user")
+                contrasena = st.text_input("🔑 Contraseña:", type="password", placeholder="Tu contraseña", key="login_pass")
+                if st.button("Entrar →", use_container_width=True, key="btn_login"):
+                    if usuario and contrasena:
+                        db = st.session_state["usuarios_db"]
+                        if usuario in db and db[usuario] == contrasena:
+                            st.session_state["logged_in"] = True
+                            st.session_state["usuario_actual"] = usuario
+                            st.rerun()
+                        else:
+                            st.error("❌ Usuario o contraseña incorrectos.")
+                    else:
+                        st.warning("⚠️ Escribe tu usuario y contraseña.")
+
+            with tab_registro:
+                nuevo_usuario = st.text_input("👤 Nuevo usuario:", placeholder="Elige un usuario", key="reg_user")
+                nueva_contrasena = st.text_input("🔑 Contraseña:", type="password", placeholder="Elige una contraseña", key="reg_pass")
+                confirmar = st.text_input("🔑 Confirmar contraseña:", type="password", placeholder="Repite la contraseña", key="reg_confirm")
+                if st.button("Crear cuenta →", use_container_width=True, key="btn_registro"):
+                    if nuevo_usuario and nueva_contrasena and confirmar:
+                        if nueva_contrasena != confirmar:
+                            st.error("❌ Las contraseñas no coinciden.")
+                        elif nuevo_usuario in st.session_state["usuarios_db"]:
+                            st.error("❌ Ese usuario ya existe, elige otro.")
+                        elif len(nueva_contrasena) < 4:
+                            st.warning("⚠️ La contraseña debe tener al menos 4 caracteres.")
+                        else:
+                            st.session_state["usuarios_db"][nuevo_usuario] = nueva_contrasena
+                            st.session_state["logged_in"] = True
+                            st.session_state["usuario_actual"] = nuevo_usuario
+                            st.success(f"✅ Cuenta creada. ¡Bienvenido {nuevo_usuario}!")
+                            st.rerun()
+                    else:
+                        st.warning("⚠️ Por favor completa todos los campos.")
+        st.stop()
+
+check_login()
+
+# ── Resto de la app (solo visible si está logueado) ───────────────
 
 st.markdown("""
 <style>
@@ -35,6 +96,14 @@ st.markdown("""
 
 # ── Sidebar ─────────────────────────────────────────────────────
 with st.sidebar:
+    # Mostrar usuario y botón de cerrar sesión
+    usuario_actual = st.session_state.get("usuario_actual", "Usuario")
+    st.markdown(f"👤 **{usuario_actual}**")
+    if st.button("🚪 Cerrar sesión", use_container_width=True):
+        st.session_state["logged_in"] = False
+        st.session_state["usuario_actual"] = None
+        st.rerun()
+    st.markdown("---")
     st.markdown("### ⚙️ Configuración")
 
     # Leer desde Streamlit Secrets automáticamente (Streamlit Cloud)
