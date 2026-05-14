@@ -292,11 +292,19 @@ if st.session_state.get("mostrar_reto") and st.session_state.get("ultima_respues
                         "respuesta": respuesta_reto,
                         "evaluacion": evaluacion
                     })
-                    # Extraer nuevo ejercicio de la evaluacion
+                    # Extraer nuevo ejercicio de la evaluacion (buscar "Ahora intenta")
                     import re
-                    match = re.search(r"[\d]+\s*[\+\-\×\÷\*\/x]\s*[\d]+", evaluacion)
-                    if match:
-                        st.session_state["ejercicio_reto"] = match.group(0).strip()
+                    nuevo_ejercicio = ""
+                    for linea in evaluacion.split("
+"):
+                        if any(x in linea for x in ["Ahora intenta", "intenta", "Intenta"]):
+                            patron = re.compile(r"(\d+\s*[\+\-\×\÷\*x\/]\s*\d+)")
+                            m = patron.search(linea)
+                            if m:
+                                nuevo_ejercicio = m.group(0).strip()
+                                break
+                    if nuevo_ejercicio:
+                        st.session_state["ejercicio_reto"] = nuevo_ejercicio
                     st.session_state["reto_contador"] = st.session_state.get("reto_contador", 0) + 1
                     st.rerun()
                 except Exception as e:
