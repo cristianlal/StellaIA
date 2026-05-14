@@ -71,21 +71,28 @@ class TutorAdaptativo:
 
     def evaluar_reto(self, perfil: str, respuesta_estudiante: str, ejercicio: str = "", tema: str = "suma") -> str:
         """Evalúa la respuesta del reto sin pasar por el RAG."""
-        prompt = f"""Eres Stella, tutora de matemáticas. 
+        
+        # Si no tenemos el ejercicio, no podemos evaluar correctamente
+        if not ejercicio:
+            prompt = f"""Eres Stella, tutora de matemáticas.
+El estudiante respondió "{respuesta_estudiante}" a un ejercicio de {tema}.
+No tengo el ejercicio exacto pero felicítalo si parece una respuesta numérica válida.
+Propón un ejercicio nuevo de {tema} con números pequeños.
+Responde en 3 líneas máximo. NO cambies de tema."""
+        else:
+            prompt = f"""Eres Stella, tutora de matemáticas.
 
-El estudiante estaba practicando el tema: {tema}
-El ejercicio del reto fue: {ejercicio}
-El estudiante respondió: "{respuesta_estudiante}"
+EJERCICIO: {ejercicio}
+RESPUESTA DEL ESTUDIANTE: {respuesta_estudiante}
+TEMA: {tema}
 
-INSTRUCCIONES IMPORTANTES:
-1. Calcula TÚ MISMO la respuesta correcta del ejercicio "{ejercicio}" antes de evaluar.
-2. Compara la respuesta del estudiante con la correcta.
-3. Responde en exactamente 3 líneas:
-   - LÍNEA 1: Si es correcto escribe: "🏆 ¡Correcto! Tienes el Reto Rápido correcto." / Si es incorrecto escribe: "❌ Casi lo logras, la respuesta correcta es [resultado] porque [razón de una frase]."
-   - LÍNEA 2: Una oración corta de ánimo.
-   - LÍNEA 3: Propón un nuevo ejercicio SOLO del tema {tema}, similar al anterior. Ejemplo: "Ahora intenta: [número] [operación del mismo tema] [número] = ?"
-4. NO cambies de tema. Si el tema es suma, el nuevo ejercicio debe ser de SUMA únicamente.
-5. NO incluyas estrategias ni explicaciones largas."""
+PASO 1: Resuelve el ejercicio {ejercicio} tú mismo ahora.
+PASO 2: Compara con la respuesta del estudiante "{respuesta_estudiante}".
+PASO 3: Responde en exactamente 3 líneas:
+- LÍNEA 1: Si es correcto: "🏆 ¡Correcto! {ejercicio} = {respuesta_estudiante} es la respuesta correcta." / Si es incorrecto: "❌ Casi lo logras, {ejercicio} = [resultado correcto], no {respuesta_estudiante}."
+- LÍNEA 2: Una oración corta de ánimo.
+- LÍNEA 3: "Ahora intenta: [nuevo ejercicio de {tema} con números similares] = ?"
+IMPORTANTE: Solo usa operaciones de {tema}. Si el tema es suma usa solo +. Si es resta usa solo -."""
 
         try:
             response = self.client.chat.completions.create(
