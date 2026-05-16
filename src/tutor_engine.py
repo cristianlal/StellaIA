@@ -27,6 +27,28 @@ class TutorAdaptativo:
                 "respuesta": None,
             }
 
+        # FILTRO DE TEMA — solo responde sobre matemáticas básicas
+        temas_validos = [
+            "suma", "sumar", "adición", "añadir", "agregar",
+            "resta", "restar", "sustracción", "quitar",
+            "multiplicación", "multiplicar", "tabla", "producto",
+            "división", "dividir", "cociente", "repartir",
+            "matemática", "matemáticas", "número", "números",
+            "operación", "operaciones", "calcular", "cálculo",
+            "más", "menos", "por", "entre", "resultado",
+            "ejercicio", "problema", "ecuación", "aritmética"
+        ]
+        pregunta_lower = pregunta.lower()
+        es_tema_valido = any(t in pregunta_lower for t in temas_validos)
+
+        if not es_tema_valido:
+            return {
+                "perfil": perfil,
+                "pregunta": pregunta,
+                "respuesta": "⚠️ Solo puedo ayudarte con **suma**, **resta**, **multiplicación** y **división**. Por favor escribe una pregunta sobre estos temas.",
+                "fuente_rag": "filtro de tema",
+            }
+
         contexto_rag = self.rag.retrieve(query=pregunta)
         prompt_final = build_prompt(
             perfil=perfil,
@@ -40,7 +62,7 @@ class TutorAdaptativo:
                 messages=[
                     {
                         "role": "system",
-                        "content": "Eres un tutor virtual de matemáticas especializado en estudiantes neurodivergentes con TDAH y Autismo. Respondes siempre en español."
+                        "content": "Eres Stella, tutora virtual de matemáticas básicas especializada en estudiantes neurodivergentes con TDAH y Autismo. SOLO respondes preguntas sobre suma, resta, multiplicación y división. Si te preguntan algo diferente, responde exactamente: '⚠️ Solo puedo ayudarte con suma, resta, multiplicación y división. Por favor escribe una pregunta sobre estos temas.' Respondes siempre en español."
                     },
                     {
                         "role": "user",
