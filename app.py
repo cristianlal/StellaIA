@@ -1,13 +1,12 @@
 """
 app.py
-Interfaz gráfica con Streamlit para el Tutor Virtual Adaptativo.
-Ejecutar con: streamlit run app.py
-Actualizado para usar google-genai en lugar de google-generativeai.
+Interfaz gráfica con Streamlit para Stella - Tutor Virtual Adaptativo.
 """
 
 import streamlit as st
 import sys
 import os
+import re
 from pathlib import Path
 
 st.set_page_config(
@@ -19,9 +18,6 @@ st.set_page_config(
 
 # ── Sistema de Login ──────────────────────────────────────────────
 def check_login():
-    import json
-
-    # Cargar usuarios guardados en session_state
     if "usuarios_db" not in st.session_state:
         st.session_state["usuarios_db"] = {}
 
@@ -53,50 +49,55 @@ def check_login():
                         st.warning("⚠️ Escribe tu usuario y contraseña.")
 
             with tab_registro:
-                nuevo_usuario = st.text_input("👤 Nuevo usuario:", placeholder="Elige un usuario", key="reg_user")
-                nueva_contrasena = st.text_input("🔑 Contraseña:", type="password", placeholder="Elige una contraseña", key="reg_pass")
+                nuevo_usuario = st.text_input("👤 Nuevo usuario:", placeholder="Solo letras y números, mín. 3 caracteres", key="reg_user")
+                nueva_contrasena = st.text_input("🔑 Contraseña:", type="password", placeholder="Mín. 6 caracteres con letras y números", key="reg_pass")
                 confirmar = st.text_input("🔑 Confirmar contraseña:", type="password", placeholder="Repite la contraseña", key="reg_confirm")
+                st.caption("ℹ️ Usuario: solo letras y números, sin espacios. Contraseña: mínimo 6 caracteres con letras y números.")
+
                 if st.button("Crear cuenta →", use_container_width=True, key="btn_registro"):
-                    if nuevo_usuario and nueva_contrasena and confirmar:
-                        if nueva_contrasena != confirmar:
-                            st.error("❌ Las contraseñas no coinciden.")
-                        elif nuevo_usuario in st.session_state["usuarios_db"]:
-                            st.error("❌ Ese usuario ya existe, elige otro.")
-                        elif len(nueva_contrasena) < 4:
-                            st.warning("⚠️ La contraseña debe tener al menos 4 caracteres.")
-                        else:
-                            st.session_state["usuarios_db"][nuevo_usuario] = nueva_contrasena
-                            st.session_state["logged_in"] = True
-                            st.session_state["usuario_actual"] = nuevo_usuario
-                            st.success(f"✅ Cuenta creada. ¡Bienvenido {nuevo_usuario}!")
-                            st.rerun()
-                    else:
+                    u = nuevo_usuario.strip()
+                    c = nueva_contrasena.strip()
+                    cf = confirmar.strip()
+
+                    if not u or not c or not cf:
                         st.warning("⚠️ Por favor completa todos los campos.")
+                    elif len(u) < 3:
+                        st.error("❌ El usuario debe tener al menos 3 caracteres.")
+                    elif not re.match(r"^[a-zA-Z0-9_]+$", u):
+                        st.error("❌ El usuario solo puede tener letras, números y guión bajo. Sin espacios.")
+                    elif len(c) < 6:
+                        st.error("❌ La contraseña debe tener al menos 6 caracteres.")
+                    elif not any(ch.isalpha() for ch in c):
+                        st.error("❌ La contraseña debe tener al menos una letra.")
+                    elif not any(ch.isdigit() for ch in c):
+                        st.error("❌ La contraseña debe tener al menos un número.")
+                    elif c != cf:
+                        st.error("❌ Las contraseñas no coinciden.")
+                    elif u in st.session_state["usuarios_db"]:
+                        st.error("❌ Ese usuario ya existe, elige otro.")
+                    else:
+                        st.session_state["usuarios_db"][u] = c
+                        st.session_state["logged_in"] = True
+                        st.session_state["usuario_actual"] = u
+                        st.success(f"✅ ¡Bienvenido {u}!")
+                        st.rerun()
         st.stop()
 
 check_login()
 
-# ── Resto de la app (solo visible si está logueado) ───────────────
-
+# ── Estilos ───────────────────────────────────────────────────────
 st.markdown("""
 <style>
     .main-title { font-size: 2rem; font-weight: 700; color: #00CFFF; text-align: center; text-shadow: 0px 0px 10px rgba(0,207,255,0.5); }
-    .perfil-tdah { background: linear-gradient(135deg, #f093fb, #f5576c);
-                   padding: 1rem; border-radius: 10px; color: white; }
-    .perfil-autismo { background: linear-gradient(135deg, #4facfe, #00f2fe);
-                      padding: 1rem; border-radius: 10px; color: white; }
-    .respuesta-box { background: #f8f9fa; border-left: 4px solid #6c63ff;
-                     padding: 1.5rem; border-radius: 8px; margin-top: 1rem; }
-    .stButton > button { width: 100%; background-color: #6c63ff;
-                         color: white; border: none; padding: 0.6rem;
-                         border-radius: 8px; font-size: 1rem; }
+    .perfil-tdah { background: linear-gradient(135deg, #f093fb, #f5576c); padding: 1rem; border-radius: 10px; color: white; }
+    .perfil-autismo { background: linear-gradient(135deg, #4facfe, #00f2fe); padding: 1rem; border-radius: 10px; color: white; }
+    .stButton > button { width: 100%; background-color: #6c63ff; color: white; border: none; padding: 0.6rem; border-radius: 8px; font-size: 1rem; }
     .stButton > button:hover { background-color: #5a52e0; }
 </style>
 """, unsafe_allow_html=True)
 
-# ── Sidebar ─────────────────────────────────────────────────────
+# ── Sidebar ───────────────────────────────────────────────────────
 with st.sidebar:
-    # Mostrar usuario y botón de cerrar sesión
     usuario_actual = st.session_state.get("usuario_actual", "Usuario")
     st.markdown(f"👤 **{usuario_actual}**")
     if st.button("🚪 Cerrar sesión", use_container_width=True):
@@ -106,9 +107,7 @@ with st.sidebar:
     st.markdown("---")
     st.markdown("### ⚙️ Configuración")
 
-    # Leer desde Streamlit Secrets automáticamente (Streamlit Cloud)
     api_key_secret = st.secrets.get("GROQ_API_KEY", "") if hasattr(st, "secrets") else ""
-
     if api_key_secret:
         api_key = api_key_secret
         st.success("🔑 API Key cargada")
@@ -122,22 +121,19 @@ with st.sidebar:
 
     st.markdown("---")
     st.markdown("### 📚 ¿Qué es este tutor?")
-    st.info(
-        "Sistema RAG + IA que adapta sus explicaciones matemáticas "
-        "según el perfil cognitivo del estudiante (TDAH o Autismo)."
-    )
+    st.info("Sistema RAG + IA que adapta sus explicaciones matemáticas según el perfil cognitivo del estudiante.")
     st.markdown("---")
     st.markdown("**📖 Temas disponibles:**")
     st.markdown("- ➕ Suma\n- ➖ Resta\n- ✖️ Multiplicación\n- ➗ División")
     st.markdown("---")
-    st.caption("Proyecto Integrador I — UDES 2026")
+    st.caption("Proyecto Integrador — UDES 2026")
 
-# ── Título ───────────────────────────────────────────────────────
+# ── Título ────────────────────────────────────────────────────────
 st.markdown('<p class="main-title">🧮 Stella</p>', unsafe_allow_html=True)
 st.markdown('<p style="text-align:center; color:#aaaaaa;">Matemáticas básicas para estudiantes con TDAH y Autismo</p>', unsafe_allow_html=True)
 st.markdown("---")
 
-# ── Selección de perfil ──────────────────────────────────────────
+# ── Selección de perfil ───────────────────────────────────────────
 perfil_actual = st.session_state.get("perfil", None)
 
 if perfil_actual is None:
@@ -172,7 +168,7 @@ else:
 
 st.markdown("")
 
-# ── Input ────────────────────────────────────────────────────────
+# ── Input ─────────────────────────────────────────────────────────
 pregunta = st.text_area(
     "💬 ¿Qué quieres aprender hoy?",
     placeholder="Ejemplo: Explícame cómo se hace una multiplicación",
@@ -184,10 +180,10 @@ generar = st.button("✨ Generar explicación", use_container_width=True, type="
 if "historial" not in st.session_state:
     st.session_state["historial"] = []
 
-# ── Generación ───────────────────────────────────────────────────
+# ── Generación ────────────────────────────────────────────────────
 if generar:
     if not api_key:
-        st.error("⚠️ Por favor ingresa tu API Key de Gemini en la barra lateral.")
+        st.error("⚠️ Por favor ingresa tu Groq API Key en la barra lateral.")
     elif not perfil_actual:
         st.warning("⚠️ Selecciona un perfil primero (TDAH, Autismo o General).")
     elif not pregunta.strip():
@@ -198,7 +194,6 @@ if generar:
             try:
                 sys.path.append(str(Path(__file__).parent / "src"))
                 from tutor_engine import TutorAdaptativo
-
                 tutor = TutorAdaptativo(api_key=api_key, knowledge_dir="knowledge_base")
                 resultado = tutor.responder(perfil=perfil_actual, pregunta=pregunta)
 
@@ -214,12 +209,11 @@ if generar:
                         "pregunta": pregunta,
                         "respuesta": respuesta,
                     })
-                    # Solo mostrar reto si la respuesta no es un mensaje de error
+
                     es_error = any(x in respuesta for x in ["⚠️", "🔑", "⏳", "Lo siento", "no estoy diseñado", "API Key"])
-                    # Extraer el ejercicio del reto de la respuesta
-                    import re
+
+                    # Extraer ejercicio del reto
                     ejercicio_encontrado = ""
-                    # Buscar en toda la respuesta el patron del reto rapido
                     lineas_resp = respuesta.splitlines()
                     for linea in reversed(lineas_resp):
                         if any(x in linea for x in ["Reto", "reto", "⭐", "intenta", "Intenta"]):
@@ -237,24 +231,20 @@ if generar:
                     st.session_state["historial_reto"] = []
                     st.session_state["reto_contador"] = 0
 
-
-
             except Exception as e:
                 st.error(f"❌ Error: {str(e)}")
 
-# ── Sección de Reto Interactivo ──────────────────────────────────
+# ── Reto Interactivo ──────────────────────────────────────────────
 if st.session_state.get("mostrar_reto") and st.session_state.get("ultima_respuesta"):
     st.markdown("---")
     st.markdown("### 🎯 ¡Responde el Reto!")
 
-    # Mostrar historial de intentos del reto
     if st.session_state.get("historial_reto"):
-        for i, item in enumerate(st.session_state["historial_reto"]):
+        for item in st.session_state["historial_reto"]:
             st.markdown(f"**Tu respuesta:** `{item['respuesta']}`")
             st.markdown(item["evaluacion"])
             st.markdown("---")
 
-    # Campo siempre activo para seguir respondiendo
     st.markdown("✏️ Escribe tu respuesta:")
     with st.form(key=f"form_reto_{st.session_state.get('reto_contador', 0)}", clear_on_submit=True):
         respuesta_reto = st.text_input(
@@ -285,11 +275,9 @@ if st.session_state.get("mostrar_reto") and st.session_state.get("ultima_respues
                         "respuesta": respuesta_reto,
                         "evaluacion": evaluacion
                     })
-                    # Extraer nuevo ejercicio de la evaluacion
-                    import re
+                    # Extraer nuevo ejercicio
                     nuevo_ejercicio = ""
-                    lineas_eval = evaluacion.splitlines()
-                    for linea in lineas_eval:
+                    for linea in evaluacion.splitlines():
                         if any(x in linea for x in ["Ahora intenta", "intenta", "Intenta"]):
                             m = re.search(r"(\d+\s*[\+\-\*x\/]\s*\d+)", linea)
                             if m:
@@ -304,7 +292,7 @@ if st.session_state.get("mostrar_reto") and st.session_state.get("ultima_respues
         else:
             st.warning("⚠️ Escribe tu respuesta antes de verificar.")
 
-# ── Feedback ─────────────────────────────────────────────────────
+# ── Feedback ──────────────────────────────────────────────────────
 if st.session_state.get("ultima_respuesta"):
     st.markdown("---")
     st.markdown("**¿Te fue útil esta explicación?**")
@@ -316,8 +304,8 @@ if st.session_state.get("ultima_respuesta"):
         if st.button("👎 Necesito más ayuda", use_container_width=True):
             st.info("No te preocupes, intenta preguntar de otra forma o elige otro tema.")
 
-# ── Historial ────────────────────────────────────────────────────
-if st.session_state["historial"]:
+# ── Historial ─────────────────────────────────────────────────────
+if st.session_state.get("historial"):
     st.markdown("---")
     with st.expander(f"📜 Historial de sesión ({len(st.session_state['historial'])} preguntas)"):
         for i, item in enumerate(reversed(st.session_state["historial"]), 1):
